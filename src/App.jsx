@@ -1,18 +1,16 @@
 import { Canvas } from "@react-three/fiber";
-import { Experience } from "./components/Experience";
-
-function App() {
+import Game from "./components/Three"
+import './index.css'
+import { Suspense } from "react";
+const App = () => {
   return (
-    <>
-      <Canvas camera={{
-        position: [0, 0, 5],
-        fov: 30,
-      }}>
-        <color attach="background" args={["#ececec"]} />
-        <Experience />
-      </Canvas>
-    </>
+    <Canvas id="canvas-container" 
+    >
+      <Suspense fallback={null}>
+  <Game/>
+      </Suspense>
+    </Canvas>
   );
-}
+};
 
 export default App;
